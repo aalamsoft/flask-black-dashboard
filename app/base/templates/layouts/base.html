@@ -15,60 +15,62 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png" />
+		<link rel="icon" type="image/png" href="/static/assets/img/favicon.png" />
+		<title>Flask Dashboard Black - {% block title %}{% endblock %} | AppSeed</title>
+		<!--     Fonts and icons     -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+		<!-- Nucleo Icons -->
+		<link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
+		<!-- CSS Files -->
+		<link href="/static/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+		<!-- <link href="/static/assets/css/jarvis.css?v=1.0.0" rel="stylesheet" /> -->
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
-  <title>
-    Flask Dashboard Black - {% block title %}{% endblock %} | AppSeed
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <!-- Nucleo Icons -->
-  <link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link href="/static/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="/static/assets/demo/demo.css" rel="stylesheet" />
+		<script>
+			document.write('<link href="/static/assets/css/jarvis.css?r=' + Math.floor(Math.random() * 100) + '" rel="stylesheet" type="text/css" />');
+			document.write('<link href="/static/assets/css/jarvis_red.css?r=' + Math.floor(Math.random() * 100) + '" rel="stylesheet" type="text/css" />');
+			document.write('<link href="/static/assets/css/jarvis_grey.css?r=' + Math.floor(Math.random() * 100) + '" rel="stylesheet" type="text/css" />');
+			document.write('<link href="/static/assets/css/global.css?r=' + Math.floor(Math.random() * 100) + '" rel="stylesheet" type="text/css" />');
+		</script>
 
-  <!-- Specific Page CSS goes HERE  -->
-  {% block stylesheets %}{% endblock stylesheets %}
+		<!-- CSS Just for demo purpose, don't include it in your project -->
+		<link href="/static/assets/demo/demo.css" rel="stylesheet" />
 
-</head>
+		<!-- Specific Page CSS goes HERE  -->
+		{% block stylesheets %}{% endblock stylesheets %}
+	</head>
 
-<body class="">
-  <div class="wrapper">
+	<body class="">
+		<div class="wrapper">
+			{% include 'includes/sidebar.html' %}
 
-    {% include 'includes/sidebar.html' %}
+			<div class="main-panel">
+				{% include 'includes/navigation.html' %}
 
-    <div class="main-panel">
+				<div class="content">{% block content %}{% endblock content %}</div>
 
-      {% include 'includes/navigation.html' %}
+				{% include 'includes/footer.html' %}
+			</div>
+		</div>
 
-      <div class="content">
+		<!-- {% include 'includes/fixed-plugin.html' %} {% include 'includes/scripts.html' %} {% include 'includes/scripts-sidebar.html' %} -->
 
-        {% block content %}{% endblock content %}
+		<!-- Specific Page JS goes HERE  -->
+		{% block javascripts %}{% endblock javascripts %}
 
-      </div>
+		<!-- Load React. -->
+		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+		<!-- <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script> -->
 
-      {% include 'includes/footer.html' %}
+		<div id="root"></div>
+		<!-- Load our React component. -->
+		<script src="../../static/lantern/src/like_button.js"></script>
 
-    </div>
-    
-  </div>
-
-  {% include 'includes/fixed-plugin.html' %}
-
-  {% include 'includes/scripts.html' %}
-
-  {% include 'includes/scripts-sidebar.html' %}
-
-  <!-- Specific Page JS goes HERE  -->
-  {% block javascripts %}{% endblock javascripts %}
-
-</body>
-
+		<!-- <script src="../../static/lantern/src/index.js"></script> -->
+	</body>
 </html>
